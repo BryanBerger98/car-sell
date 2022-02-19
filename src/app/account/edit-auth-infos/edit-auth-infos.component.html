@@ -1,0 +1,40 @@
+<div class="shadow p-5 bg-white rounded mb-5">
+
+  <h2 class="display-6">Sécurité</h2>
+
+  <hr class="bg-dark">
+  <div class="d-flex">
+    <p class="fw-bold my-auto">
+      Mot de passe
+    </p>
+    <button class="btn btn-link ms-auto" type="button" (click)="onEditPassword(passwordFormModal)">Modifier</button>
+  </div>
+
+</div>
+
+<ng-template #passwordFormModal let-modal>
+  <form [formGroup]="passwordForm" (ngSubmit)="onSubmitPasswordForm()">
+    <div class="modal-header">
+      <h5 class="modal-title">Mot de passe</h5>
+      <button class="btn-close" type="button" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group mb-3">
+        <label for="oldPasswordInput">Mot de passe actuel</label>
+        <input type="password" placeholder="Votre mot de passe actuel" class="form-control" id="oldPasswordInput" formControlName="oldPassword">
+      </div>
+      <div class="form-group mb-3">
+        <label for="newPasswordInput">Nouveau mot de passe</label>
+        <input type="password" placeholder="Votre nouveau mot de passe" class="form-control" id="newPasswordInput" formControlName="newPassword">
+      </div>
+      <div class="form-group">
+        <label for="newPasswordConfirmInput">Confirmez votre mot de passe</label>
+        <input type="password" placeholder="Confirmez votre mot de passe" class="form-control" id="newPasswordConfirmInput" formControlName="newPasswordConfirm">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" type="button" (click)="modal.dismiss()">Annuler</button>
+      <button type="submit" class="btn btn-success" [disabled]="passwordForm.invalid || passwordForm.value.newPassword !== passwordForm.value.newPasswordConfirm">Enregistrer</button>
+    </div>
+  </form>
+</ng-template>

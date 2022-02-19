@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <h1 class="display-5 mb-5">Toutes les annonces</h1>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mx-auto" *ngFor="let offer of offers">
+      <div class="card">
+        <img [src]="offer.photo" alt="Offer photo" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ offer.title }} {{ offer.price | currency:'EUR':'symbol':'4.2-2':'fr' }}</h5>
+          <h6 class="fw-normal fs-5">{{ offer.brand }} {{ offer.model }}</h6>
+          <p class="card-text">{{ offer.description }}</p>
+          <a [routerLink]="['/offers', offer.id]" class="btn btn-primary">Voir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

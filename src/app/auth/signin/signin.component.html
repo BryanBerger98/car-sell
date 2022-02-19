@@ -1,0 +1,24 @@
+<div class="container py-5">
+  <h1 class="display-5 text-center my-5">Connexion</h1>
+  <div class="row">
+    <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
+      <div class="bg-white shadow rounded p-5">
+        <h2 class="fs-3 text-center fw-light mb-4">Connectez-vous ici !</h2>
+        <form [formGroup]="signinForm" (ngSubmit)="onSubmitSigninForm()">
+          <div class="form-group mb-3">
+            <label for="signupEmail">Adresse email</label>
+            <input type="email" class="form-control" placeholder="example@example.com" id="signupEmail" formControlName="email">
+          </div>
+          <div class="form-group mb-3">
+            <label for="signupPassword">Mot de passe</label>
+            <input type="password" formControlName="password" placeholder="Au moins 8 caractères" id="signupPassword" class="form-control">
+          </div>
+          <div class="d-flex flex-column">
+            <button class="btn btn-primary mx-auto mb-3" type="submit" [disabled]="signinForm.invalid">Connexion</button>
+            <a class="mx-auto" [routerLink]="['/auth', 'forgot-password']">Mot de passe oublié</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container py-5">
+  <h1 class="display-5 text-center my-5">Inscription</h1>
+  <div class="row">
+    <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
+      <div class="bg-white shadow rounded p-5">
+        <h2 class="fs-3 text-center fw-light mb-4">Inscrivez-vous ici !</h2>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmitSignupForm()">
+          <div class="form-group mb-3">
+            <label for="signupEmail">Adresse email</label>
+            <input type="email" class="form-control" placeholder="example@example.com" id="signupEmail" formControlName="email">
+          </div>
+          <div class="form-group mb-3">
+            <label for="signupPassword">Mot de passe</label>
+            <input type="password" formControlName="password" placeholder="Au moins 8 caractères" id="signupPassword" class="form-control">
+          </div>
+          <div class="form-group mb-3">
+            <label for="signupPasswordConfirm">Confirmez le mot de passe</label>
+            <input type="password" formControlName="passwordConfirm" placeholder="Au moins 8 caractères" id="signupPasswordConfirm" class="form-control">
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="signupCguCheck" formControlName="cguCheck">
+            <label for="signupCguCheck" class="form-check-label">En cochant cette case, vous acceptez les conditions générales d'utilisation</label>
+          </div>
+          <div class="d-flex">
+            <button class="btn btn-primary mx-auto" type="submit" [disabled]="signupForm.invalid || signupForm.value.password !== signupForm.value.passwordConfirm">Inscription</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
